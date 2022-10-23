@@ -30,9 +30,9 @@ class ViewRouter: ObservableObject{
     @Published var ride_completed: Bool = false
     
     // List to hold radiobuttonfields
-    @Published var orgsLst = [Org(id: "", name: "")]
-    
-    private var db = Firestore.firestore()
+    @Published var orgsLst = [Org]()
+     
+//    private var db = Firestore.firestore()
     
     
     // Creates a new ride instance
@@ -51,29 +51,28 @@ class ViewRouter: ObservableObject{
     
     
     func populateOrgs(){
-        db.collection("organizations").getDocuments(){ [self]
-            (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        self.orgsLst.append(Org(id: document.documentID, name: document["name"] as! String))
+        let db = Firestore.firestore()
+        db.collection("organizations").getDocuments { (snapshot, err) in
+            if err == nil{
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        self.orgsLst = snapshot.documents.map { d in
+                            return Org(id: d.documentID,
+                                       org_name: d["name"] as? String ?? "")
+                        }
                     }
                 }
             }
-
-    
-}
-    
-    
+        }
+    }
     
 }
 
 
     
-struct Org: Identifiable{
-var id: String
-var name: String
+struct Org : Identifiable{
+    var id: String
+    var org_name: String
 }
     
     

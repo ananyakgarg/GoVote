@@ -1,21 +1,18 @@
 //
-//  OrgChoiceView.swift
-//  Connect2Vote
+//  PreferenceOfDriverOrgs.swift
+//  GoVote
 //
-//  Created by Ananya Garg on 10/22/22.
+//  Created by Sarayu Yenumula on 10/22/22.
 //
 
 import SwiftUI
 import Firebase
 import FirebaseFirestore
 
-
 struct OrgChoiceView: View {
-    @EnvironmentObject var viewRouter: ViewRouter
     
+    @EnvironmentObject var firestoreManager: ViewRouter
     @State var orgs = ""
-    var db = Firestore.firestore()
-    
     var body: some View {
         ZStack
         {
@@ -33,107 +30,109 @@ struct OrgChoiceView: View {
                 {
                     print("Button tapped!")
                 }
-                    
                     .foregroundColor(Color.white)
                     .font(.subheadline)
                     .buttonStyle(.bordered)
                     .padding()
                                 VStack{
-                                    ForEach(viewRouter.orgsLst, id: \.id) {item in HStack{
-                                        RadioButtonField(
-                                            id: item.name,
-                                            label: item.name,
-                                            color:.white,
-                                            bgColor: Color(red: 1, green: 0, blue: 0.898),
-                                            isMarked: $orgs.wrappedValue == item.name ? true : false,
-                                            callback: { selected in
-                                                self.orgs = selected
-                                                print("Selected organization is: \(selected)")
-                                            }
-                                            
-                                        )
-                                        .padding()
-                                    }
-                                }
-                                    
+                                    RadioButtonField(
+                                        id: "League of Women Voters",
+                                        label: "League of Women Voters",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "League of Women Voters" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                        
+                                    )
+                                    .padding()
     
-//                                    RadioButtonField(
-//                                        id: "Native American Voting Rights",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "Native American Voting Rights" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//
-//                                    RadioButtonField(
-//                                        id: "Black Voters Matter",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "Black Voters Matter" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//                                    RadioButtonField(
-//                                        id: "American Civil Liberties Union",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "American Civil Liberties Union" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//                                    RadioButtonField(
-//                                        id: "NAACP Legal Defense & Education Fund",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "NAACP Legal Defense & Education Fund" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//                                    RadioButtonField(
-//                                        id: "Rock the Vote",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "Rock the Vote" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//                                    RadioButtonField(
-//                                        id: "Voto Latino",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "Voto Latino" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
-//                                    .padding()
-//                                    RadioButtonField(
-//                                        id: "Asian Americans Advancing Justice",
-//                                        color:.white,
-//                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
-//                                        isMarked: $orgs.wrappedValue == "Asian Americans Advancing Justice" ? true : false,
-//                                        callback: { selected in
-//                                            self.orgs = selected
-//                                            print("Selected organization is: \(selected)")
-//                                        }
-//                                    )
+                                    RadioButtonField(
+                                        id: "Native American Voting Rights",
+                                        label: "Native American Voting Rights",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "Native American Voting Rights" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+            
+                                    RadioButtonField(
+                                        id: "Black Voters Matter",
+                                        label: "Black Voters Matter",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "Black Voters Matter" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+                                    RadioButtonField(
+                                        id: "American Civil Liberties Union",
+                                        label: "American Civil Liberties Union",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "American Civil Liberties Union" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+                                    RadioButtonField(
+                                        id: "NAACP Legal Defense & Education Fund",
+                                        label: "NAACP Legal Defense & Education Fund",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "NAACP Legal Defense & Education Fund" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+                                    RadioButtonField(
+                                        id: "Rock the Vote",
+                                        label: "Rock the Vote",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "Rock the Vote" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+                                    RadioButtonField(
+                                        id: "Voto Latino",
+                                        label: "Voto Latino",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "Voto Latino" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
+                                    .padding()
+                                    RadioButtonField(
+                                        id: "Asian Americans Advancing Justice",
+                                        label: "Asian Americans Advancing Justice",
+                                        color:.white,
+                                        bgColor: Color(red: 1, green: 0, blue: 0.898),
+                                        isMarked: $orgs.wrappedValue == "Asian Americans Advancing Justice" ? true : false,
+                                        callback: { selected in
+                                            self.orgs = selected
+                                            print("Selected organization is: \(selected)")
+                                        }
+                                    )
                                     .padding()
                                     Spacer()
                                     Button(action: {
@@ -158,16 +157,12 @@ struct OrgChoiceView: View {
             }
         }
     }
-    // Adds available organization's to user's view
-    
-
-    
-    
-    
-    
-    
+    struct OrgChoiceView_Previews: PreviewProvider {
+        static var previews: some View {
+            OrgChoiceView()
+        }
+    }
 }
-
 
 
 //MARK:- Radio Button Field
@@ -183,7 +178,7 @@ struct RadioButtonField: View {
     
     init(
         id: String,
-        label: String,
+        label:String,
         size: CGFloat = 20,
         color: Color = Color.black,
         bgColor: Color = Color.black,
@@ -217,13 +212,3 @@ struct RadioButtonField: View {
         .foregroundColor(Color.white)
     }
 }
-
-
-struct OrgChoiceView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrgChoiceView()
-    }
-}
-
-
-
