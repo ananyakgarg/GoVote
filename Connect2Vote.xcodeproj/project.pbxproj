@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D90EB1332905A6BA0035F552 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EB1322905A6BA0035F552 /* RatingView.swift */; };
+		D90EB1352905A6EA0035F552 /* starview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90EB1342905A6EA0035F552 /* starview.swift */; };
 		D9C6B3922904D2B900133CF2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D9C6B3912904D2B900133CF2 /* GoogleSignIn */; };
 		D9C6B3942904D2B900133CF2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9C6B3932904D2B900133CF2 /* GoogleSignInSwift */; };
 		D9C6B3A32905239E00133CF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C6B3A22905239E00133CF2 /* GoogleService-Info.plist */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D90EB1322905A6BA0035F552 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		D90EB1342905A6EA0035F552 /* starview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = starview.swift; sourceTree = "<group>"; };
 		D9C6B38E2904CE6900133CF2 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		D9C6B3A22905239E00133CF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F609C7FD29047B3A00CF4E0A /* Connect2Vote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect2Vote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +110,8 @@
 				F62294282904ED740049C38A /* OrgChoiceView.swift */,
 				D9C6B38E2904CE6900133CF2 /* LogIn.swift */,
 				F677411F29057C1300F780DA /* ConfirmationView.swift */,
+				D90EB1322905A6BA0035F552 /* RatingView.swift */,
+				D90EB1342905A6EA0035F552 /* starview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,8 +203,10 @@
 				F62294242904CE6D0049C38A /* Sign_Up_View.swift in Sources */,
 				F67FBAA02904C88E00FFEBEB /* ParentView.swift in Sources */,
 				F609C80129047B3A00CF4E0A /* Connect2VoteApp.swift in Sources */,
+				D90EB1332905A6BA0035F552 /* RatingView.swift in Sources */,
 				D9C6B3A4290525F700133CF2 /* LogIn.swift in Sources */,
 				F67FBAA22904C8D200FFEBEB /* ViewRouter.swift in Sources */,
+				D90EB1352905A6EA0035F552 /* starview.swift in Sources */,
 				F677412029057C1300F780DA /* ConfirmationView.swift in Sources */,
 				F62294272904DE700049C38A /* RideScheduleView.swift in Sources */,
 				F62294292904ED750049C38A /* OrgChoiceView.swift in Sources */,

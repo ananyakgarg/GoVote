@@ -35,8 +35,7 @@ struct Sign_Up_View: View {
                             .foregroundColor(.white)
                             .font(.system(size: 27, weight: .semibold))
                             Spacer()
-
-                                                                             
+                        
                             }
                 Spacer()
                 // Assigns the user's input with the various sign up fields

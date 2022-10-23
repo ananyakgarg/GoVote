@@ -10,8 +10,7 @@ import Firebase
 import FirebaseFirestore
 
 struct OrgChoiceView: View {
-    
-    @EnvironmentObject var firestoreManager: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     @State var orgs = ""
     var body: some View {
         ZStack
@@ -136,7 +135,7 @@ struct OrgChoiceView: View {
                                     .padding()
                                     Spacer()
                                     Button(action: {
-                                        
+                                        viewRouter.currentPage = .confirmationView
                                             print("create bubble tapped")
                                         }) {
                                             Text("Continue")
