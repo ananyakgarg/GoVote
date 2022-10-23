@@ -12,12 +12,14 @@ import FirebaseAuth
 
 
 class ViewRouter: ObservableObject{
+    @Published var currentPage: Page = .signUpPage
     
     
     
 }
 
 
+
 enum Page{
-    
+    case signUpPage
 }

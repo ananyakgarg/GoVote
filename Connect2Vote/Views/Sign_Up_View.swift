@@ -18,6 +18,7 @@ struct Sign_Up_View: View {
 }
 
 
+
 struct Sign_Up_View_Previews: PreviewProvider {
     static var previews: some View {
         Sign_Up_View().environmentObject(ViewRouter())
