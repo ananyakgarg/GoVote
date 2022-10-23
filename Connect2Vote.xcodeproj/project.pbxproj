@@ -22,6 +22,7 @@
 		F62294242904CE6D0049C38A /* Sign_Up_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62294232904CE6D0049C38A /* Sign_Up_View.swift */; };
 		F62294272904DE700049C38A /* RideScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62294262904DE700049C38A /* RideScheduleView.swift */; };
 		F62294292904ED750049C38A /* OrgChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62294282904ED740049C38A /* OrgChoiceView.swift */; };
+		F677412029057C1300F780DA /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F677411F29057C1300F780DA /* ConfirmationView.swift */; };
 		F67FBAA02904C88E00FFEBEB /* ParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67FBA9F2904C88E00FFEBEB /* ParentView.swift */; };
 		F67FBAA22904C8D200FFEBEB /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67FBAA12904C8D200FFEBEB /* ViewRouter.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		F62294232904CE6D0049C38A /* Sign_Up_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_Up_View.swift; sourceTree = "<group>"; };
 		F62294262904DE700049C38A /* RideScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideScheduleView.swift; sourceTree = "<group>"; };
 		F62294282904ED740049C38A /* OrgChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgChoiceView.swift; sourceTree = "<group>"; };
+		F677411F29057C1300F780DA /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		F67FBA9F2904C88E00FFEBEB /* ParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentView.swift; sourceTree = "<group>"; };
 		F67FBAA12904C8D200FFEBEB /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				F62294232904CE6D0049C38A /* Sign_Up_View.swift */,
 				F62294282904ED740049C38A /* OrgChoiceView.swift */,
 				D9C6B38E2904CE6900133CF2 /* LogIn.swift */,
+				F677411F29057C1300F780DA /* ConfirmationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				F609C80129047B3A00CF4E0A /* Connect2VoteApp.swift in Sources */,
 				D9C6B3A4290525F700133CF2 /* LogIn.swift in Sources */,
 				F67FBAA22904C8D200FFEBEB /* ViewRouter.swift in Sources */,
+				F677412029057C1300F780DA /* ConfirmationView.swift in Sources */,
 				F62294272904DE700049C38A /* RideScheduleView.swift in Sources */,
 				F62294292904ED750049C38A /* OrgChoiceView.swift in Sources */,
 			);
