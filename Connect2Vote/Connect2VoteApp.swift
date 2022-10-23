@@ -13,6 +13,8 @@ import FirebaseCore
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+      UITableView.appearance().backgroundColor = UIColor(red: 0, green: 0 , blue: 0, alpha: 100)
+      UIListContentView.appearance().backgroundColor = UIColor(red: 0, green: 0 , blue: 0, alpha: 100)
     FirebaseApp.configure()
 
     return true

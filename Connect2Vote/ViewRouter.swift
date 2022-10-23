@@ -36,13 +36,12 @@ class ViewRouter: ObservableObject{
     
     
     // Creates a new ride instance
-    func createRide(ride_date: Date, ride_endLoc: String, ride_completed: Bool) {
+    func createRide(ride_date: Date, ride_startLoc: String, ride_endLoc: String, ride_completed: Bool) {
         let db = Firestore.firestore()
         guard let currentUserID = Auth.auth().currentUser?.uid else{
             return
         }
         let currUserRef = db.collection("riders").document(currentUserID)
-
         
         
         // Change:

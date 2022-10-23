@@ -29,31 +29,23 @@ struct Sign_Up_View: View {
             VStack{
                             
                 HStack{
-                                
+                    // Button to create account
                     Spacer()
                         Text("Create Account")
                             .foregroundColor(.white)
                             .font(.system(size: 27, weight: .semibold))
                             Spacer()
-//                            Button(
-//                                action: {
-////                                viewRouter.currentPage = .logInPage
-//                                },
-//                               label:{
-//                                Text("Log In")
-//                                       .padding()
-//                                    .foregroundColor(.black)
-//                                    .background(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 15)) })
+
                                                                              
                             }
                 Spacer()
+                // Assigns the user's input with the various sign up fields
                 SignUpFields(firstname: $firstname, lastname: $lastname, phone: $phone, email: $email, password: $password, passwordConfirmation: $passwordConfirm)
                 
                 Spacer()
                 Button(action: {
+                    // Calls function to sign a user in
                     signUpUser(userEmail: email, userPassword: password)
-                    // viewRouter.addUserProfileData(firstname: firstname, lastname: lastname, phone: phone, username: username, email: email, password: password)
                     }, label:{
                         Text("Sign Up")
                             .foregroundColor(.white)
@@ -62,6 +54,7 @@ struct Sign_Up_View: View {
                             .background(Color.black)
                             .cornerRadius(15)
                     })
+                // Ensures user fields are valid prior to sign in
                 .disabled(!signUpProcessing && !email.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty && password == passwordConfirm ? false: true)
             }
            
@@ -74,7 +67,8 @@ struct Sign_Up_View: View {
             Sign_Up_View().environmentObject(ViewRouter())
         }
     }
-
+    
+    // Function to sign user up, uses password and email for unique identification
     func signUpUser(userEmail: String, userPassword: String){
         print("testing ")
         signUpProcessing = true
@@ -96,6 +90,7 @@ struct Sign_Up_View: View {
                     }
                     let db = Firestore.firestore()
                     let userDocRef = db.collection("riders")
+                    // Creates new document in the rider's database, sets the data of the riders
                     userDocRef.document(UserID).setData([
                         "name": firstname,
                         "lastname": lastname,
@@ -118,7 +113,7 @@ struct Sign_Up_View: View {
 
 
 
-
+// Struct for various sign up fields
 struct SignUpFields: View{
     
     @Binding var firstname: String

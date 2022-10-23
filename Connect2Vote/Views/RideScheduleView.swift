@@ -14,6 +14,8 @@ struct RideScheduleView: View {
     @State var currentTime = Date()
     var db = Firestore.firestore()
     @State var pollLoc = ""
+    @State var startLoc = ""
+
     var  closedRange = Calendar.current.date(byAdding: .year, value:  -1, to: Date())!
     func formatDate()->  String{
         let components = Calendar.current.dateComponents([.hour,.minute, .day, .month, .year], from: currentTime)
@@ -32,17 +34,17 @@ struct RideScheduleView: View {
             Color(.black)
                 .ignoresSafeArea()
             VStack{
-                
+                // Title for
                 HStack{
-                    Text("c2v")
+                    Text("GoVote")
                     
-                        .navigationTitle("wtm")
+                        .navigationTitle("GoVote")
                         .font(.system(size: 30, weight: .bold))
                         .foregroundColor(.white)
                 }
                 Text("Schedule a ride")
                 
-                    .navigationTitle("wtm")
+                    .navigationTitle("Schedule a ride")
                     .font(.system(size: 30, weight: .semibold))
                     .foregroundColor(Color(red: 1, green: 0, blue: 0.898))
                 Form{
@@ -50,34 +52,9 @@ struct RideScheduleView: View {
                         DatePicker("Date and Time", selection: $currentTime)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
+                    TextField("Desired Start Location", text: $startLoc)
                     TextField("Desired Polling Place", text: $pollLoc)
-//                    {
-//
-//                        VStack{
-//                            Text("women")
-//                        }
-////                            List(model.bubbleslist, id: \.id){ bubble in
-////                                HStack{
-////                                    Image(systemName: "plus.circle.fill")
-////                                        .onTapGesture {
-////                                            print("button pressed")
-////                                            print(bubble.bubble_name)
-////                                            //bubbles_selected.append(item.bubble_name)
-////                                            bubbles_selected.append(bubble.bubble_name)
-//////                                                bubble.isselected.toggle()
-//////                                                selectedList.append(bubble.bubble_name)
-////                                        }
-////
-////                                    Text(bubble.bubble_name)
-////                                        .frame(maxWidth: .infinity, alignment: .leading)
-////
-////                            }
-////                            }
-//
-//                        }
-//
-//                }
-//
+                }
                 
                 Text("Our drivers represent organizations that focus on increasing voter turnout.")
                     .font(.system(size: 20))
@@ -92,26 +69,44 @@ struct RideScheduleView: View {
                    viewRouter.currentPage = .orgChoiceView
                }){
                     Text("Yes I would love to learn more!")
-                    .foregroundColor(Color(red: 1, green: 0, blue: 0.898))
-                    .font(.headline)
-                    .padding()
+                       .frame(minWidth: 0, maxWidth: 200)
+                       .font(.system(size: 18))
+                       .padding()
+                       .foregroundColor(.white)
+                       .overlay(
+                          RoundedRectangle(cornerRadius: 25)
+                              .stroke(Color(red: 1, green: 0, blue: 0.898), lineWidth: 2)
+                        )
+                       .background(Color(red: 1, green: 0, blue: 0.898))
+                       .cornerRadius(25)
                 Button(action: {
                                    viewRouter.currentPage = .confirmationView
-                    viewRouter.createRide(ride_date: currentTime, ride_endLoc: pollLoc, ride_completed: false)
+                    viewRouter.createRide(ride_date: currentTime, ride_startLoc: startLoc, ride_endLoc: pollLoc, ride_completed: false)
                              }){
                                     Text("No preference! Connect me with any org")
-                    .foregroundColor(Color(red: 1, green: 0, blue: 0.898))
-                                    .font(.headline)
-                                    .padding()
+                                     .frame(minWidth: 0, maxWidth: 200)
+                                     .font(.system(size: 18))
+                                     .padding()
+                                     .foregroundColor(.white)
+                                     .overlay(
+                                        RoundedRectangle(cornerRadius: 25)
+                                            .stroke(Color(red: 1, green: 0, blue: 0.898), lineWidth: 2)
+                                      )
+                            }
+                                    .background(Color(red: 1, green: 0, blue: 0.898))
+                                    .cornerRadius(25)
+                 }
+                                                                 
+                                 
+                                 
+                                 
+                                 
                 
             }
         }
-    }
 
 }
-        }}
-
-}
+        }
 
 struct RideScheduleView_Previews: PreviewProvider {
     static var previews: some View {
