@@ -36,12 +36,18 @@ class ViewRouter: ObservableObject{
     
     
     // Creates a new ride instance
-    func createRide(ride_date: Date, ride_startLoc: String, ride_endLoc: String, ride_completed: String) {
+    func createRide(ride_date: Date, ride_endLoc: String, ride_completed: Bool) {
         let db = Firestore.firestore()
+        guard let currentUserID = Auth.auth().currentUser?.uid else{
+            return
+        }
+        let currUserRef = db.collection("riders").document(currentUserID)
+
+        
         
         // Change:
         /// change this to not be hard coded into one user
-        let newRide = db.collection("riders").document("jenny_smith").collection("rides").document()
+        let newRide = currUserRef.collection("rides").document()
         
         newRide.setData(["id": newRide.documentID, "date" : ride_date, "startLocation" : ride_startLoc, "endLocation": ride_endLoc, "completedStatus": false]) { error in
         }
@@ -85,4 +91,5 @@ enum Page{
     case signUpPage
     case rideSchedulePage
     case orgChoiceView
+    case confirmationView
 }

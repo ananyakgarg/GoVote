@@ -19,12 +19,8 @@ struct ParentView: View {
             RideScheduleView()
         case .orgChoiceView:
             OrgChoiceView()
-//        case .addFriendsPage:
-//            AddFriendsView()
-//        case .requestPage:K
-//            RequestView()
-//        case .myFriendPage:
-//            MyFriendsView()
+        case .confirmationView:
+            ConfirmationView()
         }
        
     }
