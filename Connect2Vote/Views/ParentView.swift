@@ -19,12 +19,12 @@ struct ParentView: View {
 //            SignInView()
 //         case .mapPage:
 //            MapView()
-        case .addFriendsPage:K
-            AddFriendsView()
-        case .requestPage:
-            RequestView()
-        case .myFriendPage:
-            MyFriendsView()
+//        case .addFriendsPage:
+//            AddFriendsView()
+//        case .requestPage:
+//            RequestView()
+//        case .myFriendPage:
+//            MyFriendsView()
         }
        
     }
