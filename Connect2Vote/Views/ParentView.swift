@@ -17,11 +17,11 @@ struct ParentView: View {
             Sign_Up_View()
         case .rideSchedulePage:
             RideScheduleView()
-//         case .mapPage:
-//            MapView()
+        case .orgChoiceView:
+            OrgChoiceView()
 //        case .addFriendsPage:
 //            AddFriendsView()
-//        case .requestPage:
+//        case .requestPage:K
 //            RequestView()
 //        case .myFriendPage:
 //            MyFriendsView()

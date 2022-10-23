@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
 
 struct RideScheduleView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     @State var currentTime = Date()
+    var db = Firestore.firestore()
     var  closedRange = Calendar.current.date(byAdding: .year, value:  -1, to: Date())!
     func formatDate()->  String{
         let components = Calendar.current.dateComponents([.hour,.minute, .day, .month, .year], from: currentTime)
@@ -82,9 +86,9 @@ struct RideScheduleView: View {
                     .font(.system(size: 20))
                     .foregroundColor(.white)
                     .padding()
-//                Button(action: {
-//                    viewRouter.currentPage = .page1
-////                }){
+                Button(action: {
+                   viewRouter.currentPage = .orgChoiceView
+               }){
                     Text("Yes I would love to learn more!")
                     .foregroundColor(Color(red: 1, green: 0, blue: 0.898))
                     .font(.headline)
@@ -103,10 +107,13 @@ struct RideScheduleView: View {
             }
         }
     }
+
+}
 }
 
 struct RideScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        RideScheduleView()
+        RideScheduleView().environmentObject(ViewRouter())
     }
 }
+

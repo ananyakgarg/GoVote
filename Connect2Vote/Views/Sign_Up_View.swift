@@ -15,14 +15,13 @@ struct Sign_Up_View: View {
     @State var firstname = ""
     @State var lastname = ""
     @State var phone = ""
-    @State var username = ""
     @State var email = ""
     @State var password = ""
     @State var passwordConfirm = ""
     
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-        SignUpFields(firstname: $firstname, lastname: $lastname, phone: $phone, username: $username, email: $email, password: $password, passwordConfirmation: $passwordConfirm)
+        SignUpFields(firstname: $firstname, lastname: $lastname, phone: $phone, email: $email, password: $password, passwordConfirmation: $passwordConfirm)
     }
 
     func signUpUser(userEmail: String, userPassword: String){
@@ -44,12 +43,11 @@ struct Sign_Up_View: View {
                         return
                     }
                     let db = Firestore.firestore()
-                    let userDocRef = db.collection("users")
+                    let userDocRef = db.collection("riders")
                     userDocRef.document(UserID).setData([
                         "name": firstname,
                         "lastname": lastname,
                         "phoneNumber": phone,
-                        "username": username,
                         "email": email,
                         "password": password,
                         "id": UserID
@@ -75,7 +73,6 @@ struct SignUpFields: View{
     @Binding var firstname: String
     @Binding var lastname: String
     @Binding var phone: String
-    @Binding var username: String
     @Binding var email: String
     @Binding var password: String
     @Binding var passwordConfirmation: String
@@ -92,10 +89,6 @@ struct SignUpFields: View{
                 .background(Color.white)
                 .cornerRadius(15)
             TextField("Phone Number", text:$phone)
-                .padding()
-                .background(Color.white)
-                .cornerRadius(15)
-            TextField("Create Username", text: $username)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(15)
