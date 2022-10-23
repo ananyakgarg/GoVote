@@ -159,7 +159,7 @@ struct OrgChoiceView: View {
     }
     struct OrgChoiceView_Previews: PreviewProvider {
         static var previews: some View {
-            OrgChoiceView()
+            OrgChoiceView().environmentObject(ViewRouter())
         }
     }
 }

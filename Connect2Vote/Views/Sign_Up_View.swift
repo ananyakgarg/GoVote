@@ -35,16 +35,16 @@ struct Sign_Up_View: View {
                             .foregroundColor(.white)
                             .font(.system(size: 27, weight: .semibold))
                             Spacer()
-//                            Button(
-//                                action: {
-////                                viewRouter.currentPage = .logInPage
-//                                },
-//                               label:{
-//                                Text("Log In")
-//                                       .padding()
-//                                    .foregroundColor(.black)
-//                                    .background(Color.white)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 15)) })
+                            Button(
+                                action: {
+                               viewRouter.currentPage = .logInView
+                                },
+                               label:{
+                                Text("Log In")
+                                       .padding()
+                                    .foregroundColor(.black)
+                                    .background(Color.white)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15)) })
                                                                              
                             }
                 Spacer()

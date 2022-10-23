@@ -91,4 +91,5 @@ enum Page{
     case rideSchedulePage
     case orgChoiceView
     case confirmationView
+    case logInView
 }

@@ -21,6 +21,8 @@ struct ParentView: View {
             OrgChoiceView()
         case .confirmationView:
             ConfirmationView()
+        case .logInView:
+            SignInView()
         }
        
     }
