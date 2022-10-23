@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		D9C6B3922904D2B900133CF2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = D9C6B3912904D2B900133CF2 /* GoogleSignIn */; };
 		D9C6B3942904D2B900133CF2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D9C6B3932904D2B900133CF2 /* GoogleSignInSwift */; };
+		D9C6B3A32905239E00133CF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9C6B3A22905239E00133CF2 /* GoogleService-Info.plist */; };
+		D9C6B3A4290525F700133CF2 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6B38E2904CE6900133CF2 /* LogIn.swift */; };
 		F609C80129047B3A00CF4E0A /* Connect2VoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F609C80029047B3A00CF4E0A /* Connect2VoteApp.swift */; };
 		F609C80529047B3D00CF4E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F609C80429047B3D00CF4E0A /* Assets.xcassets */; };
 		F609C80829047B3D00CF4E0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F609C80729047B3D00CF4E0A /* Preview Assets.xcassets */; };
-		F609C80F29047B5C00CF4E0A /* GoogleService-Info (6).plist in Resources */ = {isa = PBXBuildFile; fileRef = F609C80E29047B5C00CF4E0A /* GoogleService-Info (6).plist */; };
 		F609C8122904817F00CF4E0A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F609C8112904817F00CF4E0A /* FirebaseAnalytics */; };
 		F609C8142904817F00CF4E0A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F609C8132904817F00CF4E0A /* FirebaseAnalyticsSwift */; };
 		F609C8162904817F00CF4E0A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F609C8152904817F00CF4E0A /* FirebaseAuth */; };
@@ -27,11 +28,11 @@
 
 /* Begin PBXFileReference section */
 		D9C6B38E2904CE6900133CF2 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		D9C6B3A22905239E00133CF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F609C7FD29047B3A00CF4E0A /* Connect2Vote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect2Vote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F609C80029047B3A00CF4E0A /* Connect2VoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect2VoteApp.swift; sourceTree = "<group>"; };
 		F609C80429047B3D00CF4E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F609C80729047B3D00CF4E0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F609C80E29047B5C00CF4E0A /* GoogleService-Info (6).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (6).plist"; sourceTree = "<group>"; };
 		F62294232904CE6D0049C38A /* Sign_Up_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sign_Up_View.swift; sourceTree = "<group>"; };
 		F62294262904DE700049C38A /* RideScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideScheduleView.swift; sourceTree = "<group>"; };
 		F62294282904ED740049C38A /* OrgChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgChoiceView.swift; sourceTree = "<group>"; };
@@ -76,13 +77,12 @@
 		F609C7FF29047B3A00CF4E0A /* Connect2Vote */ = {
 			isa = PBXGroup;
 			children = (
+				D9C6B3A22905239E00133CF2 /* GoogleService-Info.plist */,
 				F609C80029047B3A00CF4E0A /* Connect2VoteApp.swift */,
 				F67FBAA12904C8D200FFEBEB /* ViewRouter.swift */,
 				F609C80429047B3D00CF4E0A /* Assets.xcassets */,
-				F609C80E29047B5C00CF4E0A /* GoogleService-Info (6).plist */,
 				F62294222904CD7E0049C38A /* Views */,
 				F609C80629047B3D00CF4E0A /* Preview Content */,
-				D9C6B38E2904CE6900133CF2 /* LogIn.swift */,
 			);
 			path = Connect2Vote;
 			sourceTree = "<group>";
@@ -102,6 +102,7 @@
 				F62294262904DE700049C38A /* RideScheduleView.swift */,
 				F62294232904CE6D0049C38A /* Sign_Up_View.swift */,
 				F62294282904ED740049C38A /* OrgChoiceView.swift */,
+				D9C6B38E2904CE6900133CF2 /* LogIn.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,9 +178,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F609C80F29047B5C00CF4E0A /* GoogleService-Info (6).plist in Resources */,
 				F609C80829047B3D00CF4E0A /* Preview Assets.xcassets in Resources */,
 				F609C80529047B3D00CF4E0A /* Assets.xcassets in Resources */,
+				D9C6B3A32905239E00133CF2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +194,7 @@
 				F62294242904CE6D0049C38A /* Sign_Up_View.swift in Sources */,
 				F67FBAA02904C88E00FFEBEB /* ParentView.swift in Sources */,
 				F609C80129047B3A00CF4E0A /* Connect2VoteApp.swift in Sources */,
+				D9C6B3A4290525F700133CF2 /* LogIn.swift in Sources */,
 				F67FBAA22904C8D200FFEBEB /* ViewRouter.swift in Sources */,
 				F62294272904DE700049C38A /* RideScheduleView.swift in Sources */,
 				F62294292904ED750049C38A /* OrgChoiceView.swift in Sources */,

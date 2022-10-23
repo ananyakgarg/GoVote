@@ -92,7 +92,7 @@ struct SignInView_Previews: PreviewProvider {
             case .some(_):
                 print("Welcome to the party!")
                 signInProcess = false
-                viewRouter.currentPage = .requestPage
+//                viewRouter.currentPage = .requestPage
             }
         }
     }

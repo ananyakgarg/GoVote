@@ -11,6 +11,8 @@ import FirebaseFirestore
 
 
 struct Sign_Up_View: View {
+    
+    @EnvironmentObject var viewRouter: ViewRouter
     @State var signUpProcessing = false
     @State var firstname = ""
     @State var lastname = ""
@@ -19,12 +21,62 @@ struct Sign_Up_View: View {
     @State var password = ""
     @State var passwordConfirm = ""
     
-    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
-        SignUpFields(firstname: $firstname, lastname: $lastname, phone: $phone, email: $email, password: $password, passwordConfirmation: $passwordConfirm)
+        ZStack{
+            Color(.black)
+                .ignoresSafeArea()
+
+            VStack{
+                            
+                HStack{
+                                
+                    Spacer()
+                        Text("Create Account")
+                            .foregroundColor(.white)
+                            .font(.system(size: 27, weight: .semibold))
+                            Spacer()
+//                            Button(
+//                                action: {
+////                                viewRouter.currentPage = .logInPage
+//                                },
+//                               label:{
+//                                Text("Log In")
+//                                       .padding()
+//                                    .foregroundColor(.black)
+//                                    .background(Color.white)
+//                                    .clipShape(RoundedRectangle(cornerRadius: 15)) })
+                                                                             
+                            }
+                Spacer()
+                SignUpFields(firstname: $firstname, lastname: $lastname, phone: $phone, email: $email, password: $password, passwordConfirmation: $passwordConfirm)
+                
+                Spacer()
+                Button(action: {
+                    signUpUser(userEmail: email, userPassword: password)
+                    // viewRouter.addUserProfileData(firstname: firstname, lastname: lastname, phone: phone, username: username, email: email, password: password)
+                    }, label:{
+                        Text("Sign Up")
+                            .foregroundColor(.white)
+                            .bold()
+                            .frame(width: 360, height: 70)
+                            .background(Color.black)
+                            .cornerRadius(15)
+                    })
+                .disabled(!signUpProcessing && !email.isEmpty && !password.isEmpty && !passwordConfirm.isEmpty && password == passwordConfirm ? false: true)
+            }
+           
+        }
+        
+    }
+    
+    struct Sign_Up_View_Previews: PreviewProvider {
+        static var previews: some View {
+            Sign_Up_View().environmentObject(ViewRouter())
+        }
     }
 
     func signUpUser(userEmail: String, userPassword: String){
+        print("testing ")
         signUpProcessing = true
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) {authResult,
             error in
@@ -53,7 +105,6 @@ struct Sign_Up_View: View {
                         "id": UserID
                     ])
                     viewRouter.currentPage = .rideSchedulePage
-                
                 
             }
         
@@ -122,10 +173,6 @@ struct SignUpFields: View{
 
 
 
-struct Sign_Up_View_Previews: PreviewProvider {
-    static var previews: some View {
-        Sign_Up_View().environmentObject(ViewRouter())
-    }
-}
+
 
 
