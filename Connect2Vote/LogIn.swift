@@ -4,6 +4,8 @@ import SwiftUI
 import MapKit
 import Firebase
 import FirebaseFirestore
+import FirebaseCore
+import GoogleSignIn
 
 struct SignInView: View {
     
@@ -15,7 +17,6 @@ struct SignInView: View {
     @State var signInError = ""
     
     
-
     var body: some View {
         ZStack{
             Color(red: 0, green: 0, blue: 0)
