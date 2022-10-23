@@ -15,13 +15,13 @@ struct ParentView: View {
         switch viewRouter.currentPage{
         case .signUpPage:
             Sign_Up_View()
-//        case .signInPage:
-//            SignInView()
-//         case .mapPage:
-//            MapView()
+        case .rideSchedulePage:
+            RideScheduleView()
+        case .orgChoiceView:
+            OrgChoiceView()
 //        case .addFriendsPage:
 //            AddFriendsView()
-//        case .requestPage:
+//        case .requestPage:K
 //            RequestView()
 //        case .myFriendPage:
 //            MyFriendsView()

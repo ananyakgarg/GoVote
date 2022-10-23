@@ -24,9 +24,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Connect2VoteApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject var viewRouter = ViewRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ParentView().environmentObject(viewRouter)
         }
     }
 }
+
+
