@@ -7,7 +7,8 @@
 
 import SwiftUI
 import FirebaseCore
-
+import FirebaseCore
+import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
